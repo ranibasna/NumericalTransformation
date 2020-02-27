@@ -11,10 +11,6 @@ This will help in employing algorithms and methods that only accept
 numerical data as input. The main motivation for writing this package is
 to use in clustering assignments.
 
-<!-- badges: start -->
-
-<!-- badges: end -->
-
 ## Installation
 
 You can install the released version of NumericTransformation from
