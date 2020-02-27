@@ -2,12 +2,13 @@
 
 language: R
 r:
+  - oldrel
   - release
-  - devel
 cache: packages
 
 os:
   - osx
+  - linux
 
 warning_are_error: true
 
