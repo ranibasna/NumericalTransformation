@@ -15,4 +15,6 @@ Imports:
     dplyr,
     purrr,
     stats,
-    assertthat
+    assertthat,
+    ggplot2,
+    MixAll

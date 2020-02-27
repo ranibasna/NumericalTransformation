@@ -1,0 +1,93 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# NumericTransformation
+
+his package intends to convert categorical features into numerical ones. This will help in employing algorithms and methods that only accept numerical data as input. The main motivation for writing this package is to use in clustering assignments.
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Installation
+
+You can install the released version of NumericTransformation from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("NumericTransformation")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ranibasna/NumericalTransformation")
+```
+## Example
+
+This is a basic example which shows you how to convert a categorical features to numerical ones:
+
+```{r example}
+library(ggplot2)
+library(NumericTransformation)
+library(MixAll)
+library(dplyr)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+summary(cars)
+```
+
+
+```{r}
+# heart data
+library(MixAll)
+data("HeartDisease.cat")
+data("HeartDisease.cont")
+Heart_data <- cbind(HeartDisease.cat, HeartDisease.cont)
+# checking for missing values
+sort(apply(Heart_data, 2, function(x){sum(is.na(x))}), decreasing = TRUE)
+# converting the variables to factors
+Heart_data <- na.omit(Heart_data)
+Heart_data <- sapply(Heart_data, as.integer) %>% as.data.frame()
+#Heart_data <-  sapply(Heart_data, as.factor)
+heart_converted_data <- UFT_func(as.data.frame(Heart_data), Seed = 22)
+
+```
+
+
+```{r plots}
+
+heart_converted_data <- heart_converted_data %>% mutate(id = row_number())
+# adding old non-numerical features
+heart_converted_data$sex_old <- Heart_data$sex 
+ggplot(heart_converted_data, aes(x=id, y=sex, color=sex_old)) + geom_point()
+```
+```{r}
+ggplot(heart_converted_data, aes(x=heart_converted_data$sex), color=sex_old) + geom_histogram(bins = 30, color = "black", fill = "gray") 
+```
+
+
+```{r}
+heart_converted_data$slope_old <- Heart_data$slope
+ggplot(heart_converted_data, aes(x=id, y=slope, color=slope_old)) + geom_point()
+```
+
+```{r}
+ggplot(heart_converted_data, aes(x=heart_converted_data$slope), color=slope_old) + geom_histogram(bins = 30, color = "black", fill = "gray") 
+```
+

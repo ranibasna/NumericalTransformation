@@ -13,3 +13,8 @@ Data_Classes_Split<- function(Data){
   Airway_spilts <- split(names(Data),sapply(Data, function(x) paste(class(x), collapse=" ")))
   return(Airway_spilts)
 }
+
+#
+# <!-- badges: start -->
+#   [![Travis build status](https://travis-ci.org/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.org/ranibasna/NumericalTransformation)
+# <!-- badges: end -->
