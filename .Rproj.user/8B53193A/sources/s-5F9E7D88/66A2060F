@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582791769995.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "82838385",
+    "id" : "66A2060F",
+    "lastKnownWriteTime" : 1582799802,
+    "last_content_update" : 1582799802818,
+    "path" : "~/Documents/Packages/UFT_transformation/NumericTransformation/R/UFT_func.R",
+    "project_path" : "R/UFT_func.R",
+    "properties" : {
+        "cursorPosition" : "25,28",
+        "scrollLine" : "13",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
