@@ -2,6 +2,8 @@
 output: github_document
 ---
 
+[![Travis build status](https://travis-ci.org/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.org/ranibasna/NumericalTransformation)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}

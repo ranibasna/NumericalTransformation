@@ -1,4 +1,7 @@
 
+[![Travis build
+status](https://travis-ci.org/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.org/ranibasna/NumericalTransformation)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # NumericTransformation
@@ -11,8 +14,6 @@ to use in clustering assignments.
 <!-- badges: start -->
 
 <!-- badges: end -->
-
-The goal of NumericTransformation is to …
 
 ## Installation
 
