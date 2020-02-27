@@ -12,8 +12,6 @@
 #'Prepare_data(X)
 
 Prepare_data <- function(categorical_data){
-  # fa_food_cate <-  sapply(food_cate, as.factor)
-  #factor_data <- Original_data %>% select_if(is.factor) %>% mutate_if(is.factor, data.matrix)
   factor_data <- data.matrix(categorical_data %>% dplyr::select_if(is.factor))
   int_data <- categorical_data %>% select_if(is.integer)
   ready_data <- cbind(factor_data, int_data)

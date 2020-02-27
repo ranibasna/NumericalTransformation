@@ -18,6 +18,8 @@ UFT_func <- function(Data, Seed){
   if (!is.data.frame(Data)){
     stop("The Data is not in dataframe format")
   }
+  # check for missing data
+  assertthat::are_equal(sum(is.na(Data)), 0)
   # Spliting the data according to their classes
   data_splits <- Data_Classes_Split(Data)
   drops_numerical <-data_splits$numeric
