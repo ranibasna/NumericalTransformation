@@ -5,17 +5,17 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "128368823",
+    "hash" : "0",
     "id" : "61EEC25D",
-    "lastKnownWriteTime" : 1582818028,
-    "last_content_update" : 1582818028,
+    "lastKnownWriteTime" : 1582818195,
+    "last_content_update" : 1582818195,
     "path" : "~/Documents/Packages/UFT_transformation/NumericTransformation/NAMESPACE",
     "project_path" : "NAMESPACE",
     "properties" : {
         "cursorPosition" : "1,0",
         "scrollLine" : "0"
     },
-    "read_only" : true,
+    "read_only" : false,
     "read_only_alternatives" : [
     ],
     "relative_order" : 5,
