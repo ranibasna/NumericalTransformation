@@ -2,6 +2,9 @@
 [![Travis build
 status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.com/ranibasna/NumericalTransformation)
 
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/ranibasna/NumericalTransformation?branch=master&svg=true)](https://ci.appveyor.com/project/ranibasna/NumericalTransformation)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # NumericTransformation
