@@ -6,8 +6,9 @@
 #'
 #' @return The output from the UFT_Func is a dataframe of numerical columns replacing the original categorical features.
 #' @export
-#' @import dplyr
+#' @import dplyr assertthat
 #' @importFrom purrr map
+#' @importFrom stats rnorm
 #' @examples
 #' X <- data.frame("ID" = as.numeric(c(1,2,3,4)), "Age" = c(21,15,44,14), "Sex" = c("Male", "Male", "Female", "Female" ), "Name" = c("John","Samer", "Sara", "Carolina"), Smoking = c("Yes","No", "No","Yes"))
 UFT_func <- function(Data, Seed){
