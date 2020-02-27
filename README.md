@@ -1,6 +1,6 @@
 
 [![Travis build
-status](https://travis-ci.org/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.org/ranibasna/NumericalTransformation)
+status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.com/ranibasna/NumericalTransformation)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
