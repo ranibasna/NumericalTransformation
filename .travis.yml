@@ -1,4 +1,13 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+r:
+  -release
+  -devel
 cache: packages
+
+os:
+  - linux
+  - osx
+
+warning_are_error: true
