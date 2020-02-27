@@ -11,3 +11,6 @@ os:
   - osx
 
 warning_are_error: true
+
+after_success:
+  - Rscript -e 'covr::codecov(type = "all")'

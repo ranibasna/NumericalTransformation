@@ -5,6 +5,9 @@ status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=maste
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/ranibasna/NumericalTransformation?branch=master&svg=true)](https://ci.appveyor.com/project/ranibasna/NumericalTransformation)
 
+[![Codecov test
+coverage](https://codecov.io/gh/ranibasna/NumericalTransformation/branch/master/graph/badge.svg)](https://codecov.io/gh/ranibasna/NumericalTransformation?branch=master)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # NumericTransformation

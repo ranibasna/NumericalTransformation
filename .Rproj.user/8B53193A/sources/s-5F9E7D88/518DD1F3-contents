@@ -18,3 +18,5 @@ Imports:
     assertthat,
     ggplot2,
     MixAll
+Suggests: 
+    covr
