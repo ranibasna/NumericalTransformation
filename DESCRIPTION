@@ -13,4 +13,6 @@ LazyData: true
 RoxygenNote: 7.0.2
 Imports: 
     dplyr,
-    purrr
+    purrr,
+    stats,
+    assertthat
