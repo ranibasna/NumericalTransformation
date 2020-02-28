@@ -11,6 +11,7 @@
 #' @importFrom stats rnorm
 #' @examples
 #' X <- data.frame("ID" = as.numeric(c(1,2,3,4)), "Age" = c(21,15,44,14), "Sex" = c("Male", "Male", "Female", "Female" ), "Name" = c("John","Samer", "Sara", "Carolina"), Smoking = c("Yes","No", "No","Yes"))
+#' uft_x <- UFT_func(Data = X,Seed = 11)
 UFT_func <- function(Data, Seed){
   # create a default seed
   set.seed(Seed)
@@ -29,7 +30,7 @@ UFT_func <- function(Data, Seed){
   # check that there are other coloumns than numerical
   assertthat::not_empty(data_cate)
   # count numbre of uniqe values in each column
-  coutn_unique_data <- data_cate[data_splits$integer] %>% dplyr::summarise_all(n_distinct)
+  coutn_unique_data <- data_cate %>% dplyr::summarise_all(n_distinct)
   # creat a function to compare the number of uniqe element within each column and use it within map func
   com_fun <- function(.x){
     return(.x == 1)
@@ -74,3 +75,4 @@ UFT_func <- function(Data, Seed){
   }
   return(data_cate)
 }
+#UFT_func(Data = X, Seed = 11)
