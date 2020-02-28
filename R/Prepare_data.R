@@ -1,4 +1,4 @@
-#' Title Prepare the data for the UFT_Func. Mainly, it converts factor type data to integer format.
+#' Title Prepare the data for the UFT_Func. Mainly, it converts factor and character type data to integer format.
 #'
 #' @param categorical_data is the original categorical data that the UFT_Func will transform to become numerical. It should be of data frame format.
 #'

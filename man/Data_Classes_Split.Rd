@@ -18,6 +18,12 @@ This is s small function the split the data according to thier types (numerica, 
 \details{
 This function split the data to different classes depending on the data type that is contained in each variable in the data
 }
+\examples{
+X <- data.frame("ID" = as.numeric(c(1,2,3,4)), "Age" = c(21,15,44,14), "Sex" = c("Male", "Male", "Female", "Female"),
+"Name" = c("John","Samer", "Sara", "Carolina"), Smoking = c("Yes","No", "No","Yes"))
+data_split <- Data_Classes_Split(X)
+
+}
 \author{
 Rani Basna
 }

@@ -1,5 +1,5 @@
 {
-    "path" : "~/Documents/Packages/UFT_transformation/NumericTransformation/R",
+    "path" : "~/Documents/Packages/UFT_transformation/NumericTransformation/tests/testthat",
     "sortOrder" : [
         {
             "ascending" : true,

@@ -52,6 +52,7 @@ UFT_func <- function(Data, Seed){
     S <- as.vector(as.matrix(dplyr::count(data_cate, data_cate[,j], sort = TRUE)[,1])) # the unique values of variable (we did this some that the order match with count and probabilities)
     C <- as.vector(as.matrix(dplyr::count(data_cate, data_cate[,j], sort = TRUE)[,2])) # the count (number of occurance) of the values in the variable
     P <- C/(d*1) # Probabilities
+    assertthat::are_equal(sum(P), 1)
     for (i in 1:n){
       mu <- 0
       L1 <- 0

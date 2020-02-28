@@ -2,7 +2,7 @@
 % Please edit documentation in R/Prepare_data.R
 \name{Prepare_data}
 \alias{Prepare_data}
-\title{Title Prepare the data for the UFT_Func. Mainly, it converts factor type data to integer format.}
+\title{Title Prepare the data for the UFT_Func. Mainly, it converts factor and character type data to integer format.}
 \usage{
 Prepare_data(categorical_data)
 }
@@ -13,7 +13,7 @@ Prepare_data(categorical_data)
 a data frame with all the data are of int type.
 }
 \description{
-Title Prepare the data for the UFT_Func. Mainly, it converts factor type data to integer format.
+Title Prepare the data for the UFT_Func. Mainly, it converts factor and character type data to integer format.
 }
 \examples{
 X <- data.frame("ID" = 1:4, "Sex" = c("Male", "Male", "Female", "Female" ), "Name" = c("John","Samer", "Sara", "Carolina"), Smoking = c("Yes","No", "No","Yes"))

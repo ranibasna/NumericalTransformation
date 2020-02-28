@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "66A2060F",
-    "lastKnownWriteTime" : 1582889064,
-    "last_content_update" : 1582889064177,
+    "lastKnownWriteTime" : 1582893488,
+    "last_content_update" : 1582893488281,
     "path" : "~/Documents/Packages/UFT_transformation/NumericTransformation/R/UFT_func.R",
     "project_path" : "R/UFT_func.R",
     "properties" : {
-        "cursorPosition" : "45,3",
-        "scrollLine" : "32",
+        "cursorPosition" : "78,0",
+        "scrollLine" : "56",
         "tempName" : "Untitled1"
     },
     "read_only" : false,

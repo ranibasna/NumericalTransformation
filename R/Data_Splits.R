@@ -5,7 +5,7 @@
 #' @author Rani Basna
 #' @importFrom purrr is_empty
 #' @export
-#' @example
+#' @examples
 #' X <- data.frame("ID" = as.numeric(c(1,2,3,4)), "Age" = c(21,15,44,14), "Sex" = c("Male", "Male", "Female", "Female"),
 #' "Name" = c("John","Samer", "Sara", "Carolina"), Smoking = c("Yes","No", "No","Yes"))
 #' data_split <- Data_Classes_Split(X)
