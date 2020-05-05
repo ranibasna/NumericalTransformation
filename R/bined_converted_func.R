@@ -20,6 +20,7 @@ bined_converted_func <-  function(converted_data, original_data, scale_numeric =
     num_data <- original_data %>% select_if(is.double)
   }
   converted_df <- cbind(converted_data, num_data)
-  assertthat::are_equal(dim(converted_data)[1], dim(original_data)[1])
-  assertthat::are_equal(dim(converted_data)[2], dim(original_data)[2])
+  assertthat::are_equal(dim(converted_df)[1], dim(original_data)[1])
+  assertthat::are_equal(dim(converted_df)[2], dim(original_data)[2])
+return(converted_df)
 }

@@ -19,14 +19,18 @@ to use in clustering assignments.
 
 ## Installation
 
-You can install the released version of NumericTransformation from
-[CRAN](https://CRAN.R-project.org) with:
+<!-- You can install the released version of NumericTransformation from [CRAN](https://CRAN.R-project.org) with: -->
 
-``` r
-install.packages("NumericTransformation")
-```
+–\>
 
-And the development version from [GitHub](https://github.com/) with:
+<!-- ``` r -->
+
+<!-- install.packages("NumericTransformation") -->
+
+<!-- ``` -->
+
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -41,14 +45,6 @@ features to numerical ones:
 ``` r
 library(ggplot2)
 library(NumericTransformation)
-library(MixAll)
-#> Loading required package: rtkore
-#> Loading required package: Rcpp
-#> 
-#> Attaching package: 'rtkore'
-#> The following object is masked from 'package:Rcpp':
-#> 
-#>     LdFlags
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
@@ -61,80 +57,129 @@ library(dplyr)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
 ``` r
-# heart data
-library(MixAll)
-data("HeartDisease.cat")
-data("HeartDisease.cont")
-Heart_data <- cbind(HeartDisease.cat, HeartDisease.cont)
-summary(Heart_data)
-#>       sex               cp             fbs            restecg      
-#>  Min.   :0.0000   Min.   :1.000   Min.   :0.0000   Min.   :0.0000  
-#>  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:0.0000   1st Qu.:0.0000  
-#>  Median :1.0000   Median :3.000   Median :0.0000   Median :1.0000  
-#>  Mean   :0.6799   Mean   :3.158   Mean   :0.1485   Mean   :0.9901  
-#>  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:0.0000   3rd Qu.:2.0000  
-#>  Max.   :1.0000   Max.   :4.000   Max.   :1.0000   Max.   :2.0000  
-#>                                                                    
-#>      exang            slope             ca              thal      
-#>  Min.   :0.0000   Min.   :1.000   Min.   :0.0000   Min.   :3.000  
-#>  1st Qu.:0.0000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:3.000  
-#>  Median :0.0000   Median :2.000   Median :0.0000   Median :3.000  
-#>  Mean   :0.3267   Mean   :1.601   Mean   :0.6722   Mean   :4.734  
-#>  3rd Qu.:1.0000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:7.000  
-#>  Max.   :1.0000   Max.   :3.000   Max.   :3.0000   Max.   :7.000  
-#>                                   NA's   :4        NA's   :2      
-#>       age           trestbps          chol          thalach         oldpeak    
-#>  Min.   :29.00   Min.   : 94.0   Min.   :126.0   Min.   : 71.0   Min.   :0.00  
-#>  1st Qu.:48.00   1st Qu.:120.0   1st Qu.:211.0   1st Qu.:133.5   1st Qu.:0.00  
-#>  Median :56.00   Median :130.0   Median :241.0   Median :153.0   Median :0.80  
-#>  Mean   :54.44   Mean   :131.7   Mean   :246.7   Mean   :149.6   Mean   :1.04  
-#>  3rd Qu.:61.00   3rd Qu.:140.0   3rd Qu.:275.0   3rd Qu.:166.0   3rd Qu.:1.60  
-#>  Max.   :77.00   Max.   :200.0   Max.   :564.0   Max.   :202.0   Max.   :6.20  
-#> 
+# Generate toy data with categorical and numerical columns
+n   <- 100
+prb <- 0.5
+muk <- 1.5
+clusid <- rep(1:4, each = n)
+
+x1 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x1 <- c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x1 <- as.factor(x1)
+
+x2 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x2 <- c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x2 <- as.factor(x2)
+
+x3 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+
+x <- data.frame(x1,x2,x3,x4)
+summary(x)
+#>  x1      x2            x3                 x4          
+#>  A:190   A:209   Min.   :-4.58379   Min.   :-4.65458  
+#>  B:210   B:191   1st Qu.:-1.50832   1st Qu.:-1.65347  
+#>                  Median :-0.14334   Median :-0.01602  
+#>                  Mean   :-0.03826   Mean   :-0.15829  
+#>                  3rd Qu.: 1.38379   3rd Qu.: 1.38572  
+#>                  Max.   : 4.46995   Max.   : 3.67834
 ```
 
 ``` r
-# checking for missing values
-sort(apply(Heart_data, 2, function(x){sum(is.na(x))}), decreasing = TRUE)
-#>       ca     thal      sex       cp      fbs  restecg    exang    slope 
-#>        4        2        0        0        0        0        0        0 
-#>      age trestbps     chol  thalach  oldpeak 
-#>        0        0        0        0        0
-# converting the variables to factors
-Heart_data <- na.omit(Heart_data)
-Heart_data <- sapply(Heart_data, as.integer) %>% as.data.frame()
-#Heart_data <-  sapply(Heart_data, as.factor)
-heart_converted_data <- UFT_func(as.data.frame(Heart_data), Seed = 22)
+# converting the numerical data using UFT_func
+x_converted_data <- UFT_func(x, Seed = 22)
+#head(x_converted_data)
+# bined with the rest of the data
+x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
+head(x_converted_data_all)
+#>           x1         x2         x3          x4
+#> 1  0.5538511  0.6232291 -3.9813210 -2.95670465
+#> 2  2.1274456  1.8260712 -1.7934829  0.01440232
+#> 3  1.3518329  1.2141733 -0.4465833 -1.61288821
+#> 4 -1.5920877 -0.6488359 -0.7923985 -2.29761087
+#> 5 -1.4077925 -1.3671888 -1.1548024 -2.25177055
+#> 6 -1.6532942 -1.0467830 -0.9435530 -3.67630148
 ```
 
 ``` r
-heart_converted_data <- heart_converted_data %>% mutate(id = row_number())
+x_converted_data_all <- x_converted_data_all %>% dplyr::mutate(id = row_number())
+head(x_converted_data_all)
+#>           x1         x2         x3          x4 id
+#> 1  0.5538511  0.6232291 -3.9813210 -2.95670465  1
+#> 2  2.1274456  1.8260712 -1.7934829  0.01440232  2
+#> 3  1.3518329  1.2141733 -0.4465833 -1.61288821  3
+#> 4 -1.5920877 -0.6488359 -0.7923985 -2.29761087  4
+#> 5 -1.4077925 -1.3671888 -1.1548024 -2.25177055  5
+#> 6 -1.6532942 -1.0467830 -0.9435530 -3.67630148  6
+```
+
+``` r
+# plotiing
 # adding old non-numerical features
-heart_converted_data$sex_old <- Heart_data$sex 
-ggplot(heart_converted_data, aes(x=id, y=sex, color=sex_old)) + geom_point()
+x_converted_data_all$x1_old <- x$x1
+
+ggplot(x_converted_data_all, aes(x=id, y=x1, color=x1_old)) + geom_point()
 ```
 
 <img src="man/figures/README-plots-1.png" width="100%" />
 
 ``` r
-ggplot(heart_converted_data, aes(x=sex), color=sex_old) + geom_histogram(bins = 30, color = "black", fill = "gray") 
-```
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
-``` r
-heart_converted_data$slope_old <- Heart_data$slope
-ggplot(heart_converted_data, aes(x=id, y=slope, color=slope_old)) + geom_point()
+ggplot(x_converted_data_all, aes(x=x1), color=x1_old) + geom_histogram(bins = 30, color = "black", fill = "gray") 
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
+## to see clusters
+
 ``` r
-ggplot(heart_converted_data, aes(x=slope), color=slope_old) + geom_histogram(bins = 30, color = "black", fill = "gray") 
+n   <- 100
+prb <- 0.9 # we put the prb to 0.9 for clear clusters
+muk <- 1.5
+clusid <- rep(1:4, each = n)
+
+x1 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x1 <- c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x1 <- as.factor(x1)
+
+x2 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x2 <- c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x2 <- as.factor(x2)
+
+x3 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+
+x <- data.frame(x1,x2,x3,x4)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+``` r
+# converting the numerical data using UFT_func
+x_converted_data <- UFT_func(x, Seed = 22)
+#head(x_converted_data)
+# bined with the rest of the data
+x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
+head(x_converted_data_all)
+#>           x1         x2         x3         x4
+#> 1  0.5482406 -0.9598341 -0.6721997 -1.3640539
+#> 2  2.1293284  0.6497559 -3.4891224 -1.2824085
+#> 3  1.3500223  1.8238219 -1.8073841 -0.7831971
+#> 4  0.9728537 -1.1876765 -3.3130884 -1.2942845
+#> 5 -1.4094992 -0.9161744 -2.8428968  0.3910824
+#> 6  0.7081679 -0.6321053 -0.9697318 -1.5089555
+```
+
+``` r
+# plotiing
+x_converted_data_all <- x_converted_data_all %>% mutate(id = row_number())
+# adding old non-numerical features
+x_converted_data_all$x1_old <- x$x1
+ggplot(x_converted_data_all, aes(x=id, y=x1, color=x1_old)) + geom_point()
+```
+
+<img src="man/figures/README-cluster_plots-1.png" width="100%" />
+
+``` r
+ggplot(x_converted_data_all, aes(x=x1), color=x1_old) + geom_histogram(bins = 30, color = "black", fill = "gray")
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
