@@ -1,10 +1,10 @@
 
+# UFT <img src="pkgdown/favicon/apple-touch-icon-180x180.png" align="right" />
+
 [![Travis build
 status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.com/ranibasna/NumericalTransformation)
-
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/ranibasna/NumericalTransformation?branch=master&svg=true)](https://ci.appveyor.com/project/ranibasna/NumericalTransformation)
-
 [![Codecov test
 coverage](https://codecov.io/gh/ranibasna/NumericalTransformation/branch/master/graph/badge.svg)](https://codecov.io/gh/ranibasna/NumericalTransformation?branch=master)
 
@@ -21,12 +21,10 @@ to use in clustering assignments.
 
 <!-- You can install the released version of NumericTransformation from [CRAN](https://CRAN.R-project.org) with: -->
 
-–\>
+–&gt;
 
 <!-- ``` r -->
-
 <!-- install.packages("NumericTransformation") -->
-
 <!-- ``` -->
 
 You can install the development version from
@@ -77,13 +75,13 @@ x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnor
 
 x <- data.frame(x1,x2,x3,x4)
 summary(x)
-#>  x1      x2            x3                 x4          
-#>  A:190   A:209   Min.   :-4.58379   Min.   :-4.65458  
-#>  B:210   B:191   1st Qu.:-1.50832   1st Qu.:-1.65347  
-#>                  Median :-0.14334   Median :-0.01602  
-#>                  Mean   :-0.03826   Mean   :-0.15829  
-#>                  3rd Qu.: 1.38379   3rd Qu.: 1.38572  
-#>                  Max.   : 4.46995   Max.   : 3.67834
+#>  x1      x2            x3                  x4         
+#>  A:225   A:200   Min.   :-4.373129   Min.   :-5.4085  
+#>  B:175   B:200   1st Qu.:-1.579310   1st Qu.:-1.5653  
+#>                  Median :-0.019632   Median : 0.0709  
+#>                  Mean   : 0.002537   Mean   :-0.0500  
+#>                  3rd Qu.: 1.569295   3rd Qu.: 1.4859  
+#>                  Max.   : 5.088596   Max.   : 4.6016
 ```
 
 ``` r
@@ -93,25 +91,25 @@ x_converted_data <- UFT_func(x, Seed = 22)
 # bined with the rest of the data
 x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
 head(x_converted_data_all)
-#>           x1         x2         x3          x4
-#> 1  0.5538511  0.6232291 -3.9813210 -2.95670465
-#> 2  2.1274456  1.8260712 -1.7934829  0.01440232
-#> 3  1.3518329  1.2141733 -0.4465833 -1.61288821
-#> 4 -1.5920877 -0.6488359 -0.7923985 -2.29761087
-#> 5 -1.4077925 -1.3671888 -1.1548024 -2.25177055
-#> 6 -1.6532942 -1.0467830 -0.9435530 -3.67630148
+#>          x1          x2         x3         x4
+#> 1 0.4696940  0.67097741 -2.2041043 -2.9961773
+#> 2 2.1556880  1.82202244 -2.0884854 -1.7169644
+#> 3 1.3246744 -0.02304501 -1.8149687 -1.4348445
+#> 4 0.9224804 -1.00875961  0.1847771 -0.2334640
+#> 5 0.6402326  1.23647429 -3.6329444 -1.9209723
+#> 6 1.8029492 -0.56878058  0.5659637  0.2912137
 ```
 
 ``` r
 x_converted_data_all <- x_converted_data_all %>% dplyr::mutate(id = row_number())
 head(x_converted_data_all)
-#>           x1         x2         x3          x4 id
-#> 1  0.5538511  0.6232291 -3.9813210 -2.95670465  1
-#> 2  2.1274456  1.8260712 -1.7934829  0.01440232  2
-#> 3  1.3518329  1.2141733 -0.4465833 -1.61288821  3
-#> 4 -1.5920877 -0.6488359 -0.7923985 -2.29761087  4
-#> 5 -1.4077925 -1.3671888 -1.1548024 -2.25177055  5
-#> 6 -1.6532942 -1.0467830 -0.9435530 -3.67630148  6
+#>          x1          x2         x3         x4 id
+#> 1 0.4696940  0.67097741 -2.2041043 -2.9961773  1
+#> 2 2.1556880  1.82202244 -2.0884854 -1.7169644  2
+#> 3 1.3246744 -0.02304501 -1.8149687 -1.4348445  3
+#> 4 0.9224804 -1.00875961  0.1847771 -0.2334640  4
+#> 5 0.6402326  1.23647429 -3.6329444 -1.9209723  5
+#> 6 1.8029492 -0.56878058  0.5659637  0.2912137  6
 ```
 
 ``` r
