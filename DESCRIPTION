@@ -2,7 +2,12 @@ Package: NumericTransformation
 Type: Package
 Title: Transform Categorical data to Numerical 
 Version: 0.1.0
-Author: Rani Basna
+Authors@R: 
+    c(person(given = "Rani",
+             family = "Basna",
+             role = c("aut", "cre"),
+             email = "ranibasna@gmail.com",
+             comment = c(ORCID = "0000-0001-7510-8460")))
 Maintainer: The package maintainer <ranibasna@gmail.com>
 Description: This package intends to convert categorical features into numerical ones. 
     This will help in employing algorithms and methods that only accept numerical data as input. 
@@ -21,3 +26,4 @@ Imports:
 Suggests: 
     covr,
     testthat
+URL: https://github.com/ranibasna/NumericalTransformation
