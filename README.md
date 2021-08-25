@@ -1,5 +1,5 @@
 
-# UFT <img src="pkgdown/favicon/apple-touch-icon-180x180.png" align="right" />
+# UFT <a href='https://github.com/ranibasna/NumericalTransformation/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 [![Travis build
 status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=master)](https://travis-ci.com/ranibasna/NumericalTransformation)
@@ -75,13 +75,13 @@ x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnor
 
 x <- data.frame(x1,x2,x3,x4)
 summary(x)
-#>  x1      x2            x3                  x4         
-#>  A:225   A:200   Min.   :-4.373129   Min.   :-5.4085  
-#>  B:175   B:200   1st Qu.:-1.579310   1st Qu.:-1.5653  
-#>                  Median :-0.019632   Median : 0.0709  
-#>                  Mean   : 0.002537   Mean   :-0.0500  
-#>                  3rd Qu.: 1.569295   3rd Qu.: 1.4859  
-#>                  Max.   : 5.088596   Max.   : 4.6016
+#>  x1      x2            x3                  x4          
+#>  A:217   A:194   Min.   :-3.749330   Min.   :-4.24850  
+#>  B:183   B:206   1st Qu.:-1.417845   1st Qu.:-1.44877  
+#>                  Median :-0.002316   Median : 0.09057  
+#>                  Mean   : 0.024370   Mean   : 0.04117  
+#>                  3rd Qu.: 1.473889   3rd Qu.: 1.59126  
+#>                  Max.   : 3.962709   Max.   : 4.35724
 ```
 
 ``` r
@@ -91,25 +91,25 @@ x_converted_data <- UFT_func(x, Seed = 22)
 # bined with the rest of the data
 x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
 head(x_converted_data_all)
-#>          x1          x2         x3         x4
-#> 1 0.4696940  0.67097741 -2.2041043 -2.9961773
-#> 2 2.1556880  1.82202244 -2.0884854 -1.7169644
-#> 3 1.3246744 -0.02304501 -1.8149687 -1.4348445
-#> 4 0.9224804 -1.00875961  0.1847771 -0.2334640
-#> 5 0.6402326  1.23647429 -3.6329444 -1.9209723
-#> 6 1.8029492 -0.56878058  0.5659637  0.2912137
+#>           x1         x2         x3        x4
+#> 1 -0.2749332  0.6391452 -0.6349824 -1.257009
+#> 2  0.5145778 -0.9244997 -1.7980693 -2.038357
+#> 3 -1.2199346 -0.6433292 -2.3130037 -1.182519
+#> 4 -0.9694521 -1.5752906 -1.5729009 -2.420783
+#> 5  2.1406254  1.8247216 -1.0177460 -2.779858
+#> 6  1.3391589 -0.6318220 -1.2007982 -1.438790
 ```
 
 ``` r
 x_converted_data_all <- x_converted_data_all %>% dplyr::mutate(id = row_number())
 head(x_converted_data_all)
-#>          x1          x2         x3         x4 id
-#> 1 0.4696940  0.67097741 -2.2041043 -2.9961773  1
-#> 2 2.1556880  1.82202244 -2.0884854 -1.7169644  2
-#> 3 1.3246744 -0.02304501 -1.8149687 -1.4348445  3
-#> 4 0.9224804 -1.00875961  0.1847771 -0.2334640  4
-#> 5 0.6402326  1.23647429 -3.6329444 -1.9209723  5
-#> 6 1.8029492 -0.56878058  0.5659637  0.2912137  6
+#>           x1         x2         x3        x4 id
+#> 1 -0.2749332  0.6391452 -0.6349824 -1.257009  1
+#> 2  0.5145778 -0.9244997 -1.7980693 -2.038357  2
+#> 3 -1.2199346 -0.6433292 -2.3130037 -1.182519  3
+#> 4 -0.9694521 -1.5752906 -1.5729009 -2.420783  4
+#> 5  2.1406254  1.8247216 -1.0177460 -2.779858  5
+#> 6  1.3391589 -0.6318220 -1.2007982 -1.438790  6
 ```
 
 ``` r

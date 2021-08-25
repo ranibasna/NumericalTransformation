@@ -71,7 +71,7 @@
 
 <div id="uft-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#uft-" class="anchor"></a>UFT <img src="pkgdown/favicon/apple-touch-icon-180x180.png" align="right">
+<a href="#uft-" class="anchor"></a>UFT <a href="https://github.com/ranibasna/NumericalTransformation/"><img src="reference/figures/logo.png" align="right" height="139"></a>
 </h1></div>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -130,13 +130,13 @@
 
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">x1</span>,<span class="va">x2</span>,<span class="va">x3</span>,<span class="va">x4</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-<span class="co">#&gt;  x1      x2            x3                  x4         </span>
-<span class="co">#&gt;  A:225   A:200   Min.   :-4.373129   Min.   :-5.4085  </span>
-<span class="co">#&gt;  B:175   B:200   1st Qu.:-1.579310   1st Qu.:-1.5653  </span>
-<span class="co">#&gt;                  Median :-0.019632   Median : 0.0709  </span>
-<span class="co">#&gt;                  Mean   : 0.002537   Mean   :-0.0500  </span>
-<span class="co">#&gt;                  3rd Qu.: 1.569295   3rd Qu.: 1.4859  </span>
-<span class="co">#&gt;                  Max.   : 5.088596   Max.   : 4.6016</span></code></pre></div>
+<span class="co">#&gt;  x1      x2            x3                  x4          </span>
+<span class="co">#&gt;  A:217   A:194   Min.   :-3.749330   Min.   :-4.24850  </span>
+<span class="co">#&gt;  B:183   B:206   1st Qu.:-1.417845   1st Qu.:-1.44877  </span>
+<span class="co">#&gt;                  Median :-0.002316   Median : 0.09057  </span>
+<span class="co">#&gt;                  Mean   : 0.024370   Mean   : 0.04117  </span>
+<span class="co">#&gt;                  3rd Qu.: 1.473889   3rd Qu.: 1.59126  </span>
+<span class="co">#&gt;                  Max.   : 3.962709   Max.   : 4.35724</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># converting the numerical data using UFT_func</span>
 <span class="va">x_converted_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/UFT_func.html">UFT_func</a></span><span class="op">(</span><span class="va">x</span>, Seed <span class="op">=</span> <span class="fl">22</span><span class="op">)</span>
@@ -144,23 +144,23 @@
 <span class="co"># bined with the rest of the data</span>
 <span class="va">x_converted_data_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bined_converted_func.html">bined_converted_func</a></span><span class="op">(</span>converted_data <span class="op">=</span> <span class="va">x_converted_data</span>, original_data <span class="op">=</span> <span class="va">x</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">x_converted_data_all</span><span class="op">)</span>
-<span class="co">#&gt;          x1          x2         x3         x4</span>
-<span class="co">#&gt; 1 0.4696940  0.67097741 -2.2041043 -2.9961773</span>
-<span class="co">#&gt; 2 2.1556880  1.82202244 -2.0884854 -1.7169644</span>
-<span class="co">#&gt; 3 1.3246744 -0.02304501 -1.8149687 -1.4348445</span>
-<span class="co">#&gt; 4 0.9224804 -1.00875961  0.1847771 -0.2334640</span>
-<span class="co">#&gt; 5 0.6402326  1.23647429 -3.6329444 -1.9209723</span>
-<span class="co">#&gt; 6 1.8029492 -0.56878058  0.5659637  0.2912137</span></code></pre></div>
+<span class="co">#&gt;           x1         x2         x3        x4</span>
+<span class="co">#&gt; 1 -0.2749332  0.6391452 -0.6349824 -1.257009</span>
+<span class="co">#&gt; 2  0.5145778 -0.9244997 -1.7980693 -2.038357</span>
+<span class="co">#&gt; 3 -1.2199346 -0.6433292 -2.3130037 -1.182519</span>
+<span class="co">#&gt; 4 -0.9694521 -1.5752906 -1.5729009 -2.420783</span>
+<span class="co">#&gt; 5  2.1406254  1.8247216 -1.0177460 -2.779858</span>
+<span class="co">#&gt; 6  1.3391589 -0.6318220 -1.2007982 -1.438790</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x_converted_data_all</span> <span class="op">&lt;-</span> <span class="va">x_converted_data_all</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">x_converted_data_all</span><span class="op">)</span>
-<span class="co">#&gt;          x1          x2         x3         x4 id</span>
-<span class="co">#&gt; 1 0.4696940  0.67097741 -2.2041043 -2.9961773  1</span>
-<span class="co">#&gt; 2 2.1556880  1.82202244 -2.0884854 -1.7169644  2</span>
-<span class="co">#&gt; 3 1.3246744 -0.02304501 -1.8149687 -1.4348445  3</span>
-<span class="co">#&gt; 4 0.9224804 -1.00875961  0.1847771 -0.2334640  4</span>
-<span class="co">#&gt; 5 0.6402326  1.23647429 -3.6329444 -1.9209723  5</span>
-<span class="co">#&gt; 6 1.8029492 -0.56878058  0.5659637  0.2912137  6</span></code></pre></div>
+<span class="co">#&gt;           x1         x2         x3        x4 id</span>
+<span class="co">#&gt; 1 -0.2749332  0.6391452 -0.6349824 -1.257009  1</span>
+<span class="co">#&gt; 2  0.5145778 -0.9244997 -1.7980693 -2.038357  2</span>
+<span class="co">#&gt; 3 -1.2199346 -0.6433292 -2.3130037 -1.182519  3</span>
+<span class="co">#&gt; 4 -0.9694521 -1.5752906 -1.5729009 -2.420783  4</span>
+<span class="co">#&gt; 5  2.1406254  1.8247216 -1.0177460 -2.779858  5</span>
+<span class="co">#&gt; 6  1.3391589 -0.6318220 -1.2007982 -1.438790  6</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># plotiing</span>
 <span class="co"># adding old non-numerical features</span>
