@@ -7,6 +7,7 @@ status](https://travis-ci.com/ranibasna/NumericalTransformation.svg?branch=maste
 status](https://ci.appveyor.com/api/projects/status/github/ranibasna/NumericalTransformation?branch=master&svg=true)](https://ci.appveyor.com/project/ranibasna/NumericalTransformation)
 [![Codecov test
 coverage](https://codecov.io/gh/ranibasna/NumericalTransformation/branch/master/graph/badge.svg)](https://codecov.io/gh/ranibasna/NumericalTransformation?branch=master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2021--08--25-brightgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -75,13 +76,13 @@ x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnor
 
 x <- data.frame(x1,x2,x3,x4)
 summary(x)
-#>  x1      x2            x3                  x4          
-#>  A:217   A:194   Min.   :-3.749330   Min.   :-4.24850  
-#>  B:183   B:206   1st Qu.:-1.417845   1st Qu.:-1.44877  
-#>                  Median :-0.002316   Median : 0.09057  
-#>                  Mean   : 0.024370   Mean   : 0.04117  
-#>                  3rd Qu.: 1.473889   3rd Qu.: 1.59126  
-#>                  Max.   : 3.962709   Max.   : 4.35724
+#>  x1      x2            x3                 x4          
+#>  A:204   A:204   Min.   :-3.73174   Min.   :-4.03363  
+#>  B:196   B:196   1st Qu.:-1.58986   1st Qu.:-1.51643  
+#>                  Median : 0.01126   Median : 0.05593  
+#>                  Mean   :-0.03406   Mean   : 0.09105  
+#>                  3rd Qu.: 1.44801   3rd Qu.: 1.63105  
+#>                  Max.   : 3.98378   Max.   : 4.31391
 ```
 
 ``` r
@@ -91,25 +92,25 @@ x_converted_data <- UFT_func(x, Seed = 22)
 # bined with the rest of the data
 x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
 head(x_converted_data_all)
-#>           x1         x2         x3        x4
-#> 1 -0.2749332  0.6391452 -0.6349824 -1.257009
-#> 2  0.5145778 -0.9244997 -1.7980693 -2.038357
-#> 3 -1.2199346 -0.6433292 -2.3130037 -1.182519
-#> 4 -0.9694521 -1.5752906 -1.5729009 -2.420783
-#> 5  2.1406254  1.8247216 -1.0177460 -2.779858
-#> 6  1.3391589 -0.6318220 -1.2007982 -1.438790
+#>           x1         x2         x3         x4
+#> 1  0.5875140  0.6497559 -2.2997601 -0.3248441
+#> 2  2.1161486  1.8238219 -1.8089499 -2.3681881
+#> 3 -1.6769365 -0.9598341  0.3299168 -0.2387695
+#> 4  1.3626962  1.2265628 -2.1908686 -0.9452686
+#> 5  0.9980403 -1.1876765 -0.2822368 -1.1285861
+#> 6 -1.5606829  0.9968173 -2.2658486 -0.9812207
 ```
 
 ``` r
 x_converted_data_all <- x_converted_data_all %>% dplyr::mutate(id = row_number())
 head(x_converted_data_all)
-#>           x1         x2         x3        x4 id
-#> 1 -0.2749332  0.6391452 -0.6349824 -1.257009  1
-#> 2  0.5145778 -0.9244997 -1.7980693 -2.038357  2
-#> 3 -1.2199346 -0.6433292 -2.3130037 -1.182519  3
-#> 4 -0.9694521 -1.5752906 -1.5729009 -2.420783  4
-#> 5  2.1406254  1.8247216 -1.0177460 -2.779858  5
-#> 6  1.3391589 -0.6318220 -1.2007982 -1.438790  6
+#>           x1         x2         x3         x4 id
+#> 1  0.5875140  0.6497559 -2.2997601 -0.3248441  1
+#> 2  2.1161486  1.8238219 -1.8089499 -2.3681881  2
+#> 3 -1.6769365 -0.9598341  0.3299168 -0.2387695  3
+#> 4  1.3626962  1.2265628 -2.1908686 -0.9452686  4
+#> 5  0.9980403 -1.1876765 -0.2822368 -1.1285861  5
+#> 6 -1.5606829  0.9968173 -2.2658486 -0.9812207  6
 ```
 
 ``` r
